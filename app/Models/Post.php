@@ -11,6 +11,6 @@ class Post extends Model
     
     public function getPaginateByLimit(int $limit_count = 5)
     {
-        return $this->orderby('updated_at','ASC')->paginate($limit_count); //取得する要素の上限を設定
+        return $this->orderby('updated_at','DESC')->paginate($limit_count); //取得する要素の上限を設定
     }
 }
