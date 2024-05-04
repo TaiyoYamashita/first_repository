@@ -17,7 +17,7 @@
                 <h2>Body</h2>
                 <textarea name="post[body]" placeholder="今日も一日お疲れ様でした。"></textarea>
             </div>
-            <input type-"submit" value="store">
+            <input type="submit" value="store">
         </form>
             <a href="/">戻る</a>
         </div>
