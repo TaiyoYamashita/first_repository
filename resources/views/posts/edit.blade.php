@@ -17,12 +17,13 @@
             </div>
             <div class="body">
                 <h2>Body</h2>
-                <textarea name="post[body]" placeholder="今日も一日お疲れ様でした。" value="{{ $post->body }}"></textarea>
+                <textarea name="post[body]" placeholder="今日も一日お疲れ様でした。">{{ $post->body }}</textarea>
                 <!--valueにoldを指定すると条件に合致しないで弾かれたときに入力された文字列を消さないで保持する。-->
                 <p class='title_error' style='color:red'>{{ $errors->first('post.body') }}</p>
             </div>
             <input type="submit" value="update">
         </form>
+        <div class="footer">
             <a href="/posts/{{ $post->id }}">戻る</a>
         </div>
     </body>
