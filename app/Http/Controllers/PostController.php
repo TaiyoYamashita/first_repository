@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(2)]); // $postのgetメソッドを返す
+        return view('posts.index')->with(['posts' => $post->getPaginateByLimit(5)]); // $postのgetメソッドを返す
     }
     
     public function show(Post $post)
@@ -31,6 +31,18 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
         // 今データベースに挿入したタプルのidが「$post->id」に格納されている。
         
+    }
+    
+    public function edit(Post $post)
+    {
+        return view('posts.edit')->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request,Post $post)
+    {
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
+        return redirect('/posts/' . $post->id);
     }
 }
 
