@@ -18,10 +18,10 @@ class PostController extends Controller
         return view('posts.show')->with(['post' => $post]);
     }
     
-    public function create()
-    {
-        return view('posts.create');
-    }
+    //public function create()
+    //{
+    //    return view('posts.create');
+    //}
     
     public function store(PostRequest $request,Post $post)
     {
@@ -49,6 +49,11 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect('/');
+    }
+    
+    public function create(Category $category)
+    {
+        return view('posts.create')->with(['categories' => $category->get()]);
     }
 }
 
